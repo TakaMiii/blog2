@@ -108,6 +108,7 @@ export default {
     font-family: Georgia, initial;
     border-bottom: .1em solid #07dc8e;
     font-size: 1.2em;
+    letter-spacing: .15em;
     padding: 0 5em .6em .8em;
     text-align: center;
   }

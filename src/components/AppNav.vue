@@ -1,8 +1,8 @@
 <template>
   <div class="nav">
     <ul class="list-container">
-      <li class="nav-divider"><a href="#" class="nav-a-style">home</a></li>
-      <li><a href="#" class="nav-a-style">about me</a></li>
+      <li><a href="#" class="nav-a-style">HOME</a></li>
+      <li><a href="#" class="nav-a-style">ABOUT ME</a></li>
     </ul>
   </div>
 </template>
@@ -26,8 +26,9 @@ export default {
 <style scoped>
 .nav {
   width: 100vw;
-  height: 3em;
-  background: hsla(230, 43%, 100%, .5);
+  height: 4em;
+  background: hsla(230, 43%, 100%, .95);
+  border-bottom: 1px solid hsla(230, 43%, 100%, 1);
   position: fixed;
   display: flex;
   align-items: stretch;
@@ -51,22 +52,18 @@ export default {
 
 .nav-a-style {
   width: 100%;
-  height: 82%;
+  height: 66%;
   padding-top: 1.8em;
-  color: hsl(230, 43%, 87%);
-  font-size: .95em;
+  color: #595757;
+  font-size: .7em;
   font-weight: 100;
   font-family: system-ui, sans-serif;
   text-align: center;
 }
 
 .nav-a-style:hover {
-  color: #07d4a6;
+  color: #09cfa3;
   border-bottom: 3px solid #07dcac;
-}
-
-.nav-divider {
-  border-right: 1px solid hsl(230, 43%, 87%);
 }
 
 @media screen and (max-width:576px) {
