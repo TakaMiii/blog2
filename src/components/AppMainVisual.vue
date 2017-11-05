@@ -105,7 +105,7 @@ export default {
   }
 
   .invite-style {
-    font-family: Georgia, initial;
+    font-family: Lato, sans-serif;
     border-bottom: .1em solid #07dc8e;
     font-size: 1.2em;
     letter-spacing: .15em;
