@@ -186,6 +186,7 @@ export default {
   .items {
     justify-content: space-between;
     padding: 2em 5vw;
+    padding-bottom: 8em;
   }
 
   .item {
