@@ -1,10 +1,14 @@
 <template>
   <div class="items">
     <div class="item" v-for="item in items">
-      <div class="img-size"><img class="item-img" v-bind:src="item.coverImage"></div>
-      <h3 class="item-h3">
-        {{ item.itemTitle }}</h3>
-      <div class="item-date">{{ item.date }}</div>
+      <div class="img-size">
+        <img class="item-img" v-bind:src="item.coverImage">
+      </div>
+      <div class="item-text">
+        <h3 class="item-h3">
+          {{ item.itemTitle }}</h3>
+        <div class="item-date">{{ item.date }}</div>
+      </div>
     </div>
   </div>
 </template>
@@ -69,17 +73,28 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 
 <style scoped>
+/*電腦、平板共同樣式。只有手機版不套用，故手機版樣式於media query覆寫*/
+.items {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
 .item {
   width: 100%;
-  margin-bottom: 2.8rem;
+  margin: 1.5em 1%;
+  margin-bottom: 0;
+  border: 1px solid hsla(10, 10%, 95%, 1);
+  border-radius: 2%;
+  box-shadow: 2px 3px 6px 2px hsla(70, 30%, 95%, .2);
+  overflow: hidden;
 }
 
 /*嗰種item互動效果 ＋ 首頁文章顯圖太大會被裁切*/
 .img-size {
   width: 100%;
   height: 14em;
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
 }
 .img-size:before {
   content: '';
@@ -109,6 +124,11 @@ export default {
   font-weight: 600;
   margin-left: 20px;
   color: #02b490;
+}
+
+.item-text {
+  padding: 1.5em 1.2em;
+  padding-top: 0;
 }
 
 .item-h3 {
@@ -149,16 +169,6 @@ export default {
   font-weight: lighter;
 }
 
-/*電腦、平板共同樣式。只有手機版不套用，故手機版樣式於media query覆寫*/
-.items {
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-}
-.item {
-  margin: 1.5em 1%;
-}
-
 @media screen and (max-width:576px) {
   .items {
     display: flex;
@@ -179,7 +189,7 @@ export default {
   }
 
   .item {
-    width: 45%;
+    width: 47%;
   }
 }
 
