@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <index></index>
-   <!--  <about-me></about-me> -->
+   <!--  <index></index> -->
+    <about-me></about-me>
   </div>
 </template>
 
@@ -39,6 +39,26 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+h3, h4 {
+  color: #635656;
+}
+
+h3 {
+  font-size: 1.3em;
+  font-weight: 300;
+}
+
+h4 {
+  font-size: 1em;
+  font-weight: 600;
+}
+
+p {
+  color: #635656;
+  font-weight: 400;
+  text-align: justify;
 }
 
 img {

@@ -1,0 +1,139 @@
+<template>
+  <div>
+    <div class="app-about-me">
+      <div class="about-me about-miiko">
+        <div class="miiko-img-container">
+          <img src="../assets/bette.png">
+        </div>
+        <div class="about-miiko-contect">
+          <h3>ABOUT MIIKO</h3>
+          <div class="depiction">
+            <h4>Miiko，工作時間3年，曾任網頁企劃、行銷PM</h4>
+            <p>Hi, 我是Miiko，我正在找前端工程師（junior engineer）的工作。假使您正好有這樣的需要，我很樂意收到您的來信。</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-me about-mike">
+        <div class="mike-img-container">
+          <img src="../assets/mike.jpg">
+        </div>
+        <div class="about-mike-contect">
+           <h3>ABOUT MIKE</h3>
+          <div class="depiction">
+            <h4>Mike，php工程師6年，交大99級</h4>
+            <p>Mike是工作很久的php工程師，也是教Miiko coding的人。他也快換工作了，不過他對工作自有一份期許和標準。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="our-story">
+
+    </div>
+  </div>
+</template>
+
+<script>
+
+export default {
+  name: 'AppAboutMe',
+  data () {
+    return {
+    }
+  }
+   // mounted: function mounted () {
+
+  // }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+/*大、中、小網共用樣式*/
+.about-me {
+  display: flex;
+}
+
+.depiction {
+  line-height: 2em;
+  letter-spacing: .02em;
+}
+/*大、中、小網共用樣式結束*/
+
+/*大、中網共用樣式（主要是about-miiko這段）*/
+.about-miiko {
+  flex-direction: row-reverse;
+}
+
+.miiko-img-container {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width:576px){
+  .about-miiko, .about-mike {
+    flex-direction: column;
+    border-top: 1px solid #FFFFFF;
+  }
+
+  .about-miiko-contect, .about-mike-contect {
+    margin: .5em 5%;
+  }
+}
+
+@media screen and (min-width:577px) and (max-width:992px){
+  .about-miiko {
+    flex-direction: column;
+    border-top: 1px solid #FFFFFF;
+    margin-bottom: 2em;
+  }
+
+  .about-mike {
+    margin-left: 2em;
+    margin-bottom: 1em;
+  }
+
+  .about-miiko-contect, .about-mike-contect {
+    margin: .5em 5%;
+  }
+
+  .mike-img-container {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width:993px){
+  .about-me {
+    align-items: center;
+  }
+
+  .about-miiko {
+    padding-left: 17%;
+    justify-content: space-between;
+  }
+
+  .about-mike {
+    padding-right: 17%;
+    justify-content: flex-start;
+  }
+
+  .about-miiko-contect {
+    width: 30%;
+  }
+
+  .about-mike-contect {
+    width: 60%;
+    padding-left: 10%;
+  }
+
+  .miiko-img-container {
+    width: 60%;
+  }
+
+  .mike-img-container {
+    width: 30%;
+    display: flex;
+    align-items: flex-end;
+  }
+}
+</style>

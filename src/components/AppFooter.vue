@@ -2,7 +2,7 @@
   <div>
     <div class="footer">
       <div class="contact-me">
-        <h5>CONTACT ME</h5>
+        <h3>CONTACT ME</h3>
         <input class="input-style" type="text"  v-model="visitorsMeg.name" placeholder="name">
         <input class="input-style" type="email"  v-model="visitorsMeg.email" placeholder="email address">
         <textarea class="input-msg-style" type="text"  v-model="visitorsMeg.message" placeholder="Your message"></textarea>
@@ -44,11 +44,16 @@ export default {
   height: 2rem;
   font-weight: 200;
   font-size: 13px;
-  color: hsla(226, 25%, 100%, .6);
   display: flex;
   align-items: center;
   justify-content: flex-end;
   padding-right: 5rem;
+}
+
+.footer-bottom p{
+  color: hsla(226, 25%, 100%, .5);
+  font-weight: 300;
+  letter-spacing: .15em;
 }
 
 .contact-me {
