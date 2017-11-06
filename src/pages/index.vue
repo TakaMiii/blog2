@@ -1,6 +1,6 @@
 <template>
   <div id="index">
-    <app-nav></app-nav>
+    <app-nav v-on:CheckAboutMe="turnOnAboutme"></app-nav>
     <main-visual></main-visual>
     <app-items></app-items>
     <app-footer></app-footer>
@@ -22,6 +22,11 @@ export default {
     'AppNav': AppNav,
     'AppItems': AppItems,
     'AppFooter': AppFooter
+  },
+  methods: {
+    turnOnAboutme () {
+      this.$emit('CheckAboutMe')
+    }
   }
 }
 </script>

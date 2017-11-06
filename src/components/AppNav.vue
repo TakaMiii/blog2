@@ -1,8 +1,8 @@
 <template>
   <div class="nav">
     <ul class="list-container">
-      <li><a href="#" class="nav-a-style">HOME</a></li>
-      <li><a href="#" class="nav-a-style">ABOUT ME</a></li>
+      <li><a href="#" class="nav-a-style" v-on:click="backHome">HOME</a></li>
+      <li><a href="#" class="nav-a-style" v-on:click="turnPage">ABOUT ME</a></li>
     </ul>
   </div>
 </template>
@@ -15,10 +15,15 @@ export default {
     return {
       msg: 'nav'
     }
+  },
+  methods: {
+    turnPage: function () {
+      this.$emit('CheckAboutMe')
+    },
+    backHome: function () {
+      this.$emit('clickHome')
+    }
   }
-   // mounted: function mounted () {
-
-  // }
 }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->

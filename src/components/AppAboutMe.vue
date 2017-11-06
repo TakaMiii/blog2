@@ -48,9 +48,6 @@ export default {
     return {
     }
   }
-   // mounted: function mounted () {
-
-  // }
 }
 </script>
 

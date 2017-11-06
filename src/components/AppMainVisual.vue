@@ -36,7 +36,6 @@ export default {
       // 線條的y軸終點
       let poy = this.WaveValue.poY
       let ctx = Wave.getContext('2d')
-      console.log(Wave.parentElement.clientHeight)
       let draw1 = (changeableX, changeableY) => {
         let color = 100 - Math.floor(changeableY / 10) // 100-700
         ctx.clearRect(0, 0, 1440, 720)

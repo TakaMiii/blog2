@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-   <!--  <index></index> -->
-    <about-me></about-me>
+    <index v-if="homePage" v-on:CheckAboutMe="openAboutme"></index>
+    <about-me v-if="aboutMePage" v-on:clickHome="backHome"></about-me>
   </div>
 </template>
 
@@ -16,6 +16,23 @@ export default {
   components: {
     'index': index,
     'AboutMe': AboutMe
+  },
+  data () {
+    return {
+      // 換頁機制
+      homePage: true,
+      aboutMePage: false
+    }
+  },
+  methods: {
+    openAboutme: function () {
+      this.homePage = false
+      this.aboutMePage = true
+    },
+    backHome: function () {
+      this.homePage = true
+      this.aboutMePage = false
+    }
   }
 }
 </script>
