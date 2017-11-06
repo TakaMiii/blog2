@@ -96,19 +96,20 @@ export default {
   position: relative;
   overflow: hidden;
 }
+
+/*hover item，圖片會緩慢押上一層白色*/
 .img-size:before {
   content: '';
   position: absolute;
-  width: 0;
-  height: 0;
+  width: 100%;
+  height: 100%;
   top: 0em;
   bottom: 0em;
   background: hsla(230, 43%, 100%, 0);
-  transition-duration: .4s;
+  transition-duration: .5s;
   transition-property: background;
 }
 
-/*hover item，圖片會緩慢押上一層白色*/
 .item:hover .img-size:before {
   content: '';
   position: absolute;
@@ -116,7 +117,7 @@ export default {
   height: 100%;
   top: 0em;
   bottom: 0em;
-  background: hsla(230, 43%, 100%, .7);
+  background: hsla(230, 43%, 100%, 0.7);
 }
 
 /*hover item，裡面的h3會變顏色*/

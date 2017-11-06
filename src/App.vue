@@ -1,27 +1,21 @@
 <template>
   <div id="app">
-    <app-nav></app-nav>
-    <main-visual></main-visual>
-    <app-items></app-items>
-    <app-footer></app-footer>
+    <index></index>
+   <!--  <about-me></about-me> -->
   </div>
 </template>
 
 
 
 <script>
-import MainVisual from './components/AppMainVisual.vue'
-import AppNav from './components/AppNav.vue'
-import AppItems from './components/AppItems.vue'
-import AppFooter from './components/AppFooter.vue'
+import index from './pages/index.vue'
+import AboutMe from './pages/AboutMe.vue'
 
 export default {
   name: 'app',
   components: {
-    'MainVisual': MainVisual,
-    'AppNav': AppNav,
-    'AppItems': AppItems,
-    'AppFooter': AppFooter
+    'index': index,
+    'AboutMe': AboutMe
   }
 }
 </script>
