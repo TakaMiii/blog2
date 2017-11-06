@@ -27,8 +27,15 @@
       </div>
     </div>
 
-    <div class="our-story">
-
+    <div class="our-story-container">
+      <div class="our-story">
+        <p>
+          Mike和Miiko是2014年在時間軸認識的，可能都有一點工作狂傾向，每天都在聊專案、軟體開發。
+        </p>
+        <p>
+          MiiKo畢業於藝術系，兩人一起做東西時，會包辦規劃、視覺、切版；技術方向或後端架構則由Mike指導、開發。
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -70,14 +77,40 @@ export default {
   align-items: center;
 }
 
+.our-story-container {
+  background: url('../assets/about-bng.jpg') no-repeat 50% 30%;
+  height: 30em;
+  border: 1px solid #FFFFFF;
+  border-right: 0px;
+  border-left: 0px;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.our-story {
+  width: 60%;
+}
+
+.our-story p{
+   color: hsla( 21, 10%, 78%, 1);
+   font-weight: 300;
+   font-size: 1.1em;
+   letter-spacing: .2em;
+   line-height: 1.8em;
+}
+
 @media screen and (max-width:576px){
   .about-miiko, .about-mike {
     flex-direction: column;
     border-top: 1px solid #FFFFFF;
   }
-
   .about-miiko-contect, .about-mike-contect {
     margin: .5em 5%;
+  }
+  .our-story-container {
+    background-position: 30% 60%;
   }
 }
 
