@@ -1,7 +1,6 @@
 <template>
   <div id="about-me">
     <app-nav v-on:clickHome="turnHomePage"></app-nav>
-    <main-visual></main-visual>
     <app-about-me></app-about-me>
     <app-footer></app-footer>
   </div>

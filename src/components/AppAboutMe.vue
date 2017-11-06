@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="app-about-me">
+  <div class="app-about-me">
+    <div>
       <div class="about-me about-miiko">
         <div class="miiko-img-container">
           <img src="../assets/bette.png">
@@ -9,7 +9,7 @@
           <h3>ABOUT MIIKO</h3>
           <div class="depiction">
             <h4>Miiko，工作時間3年，曾任網頁企劃、行銷PM</h4>
-            <p>Hi, 我是Miiko，我正在找前端工程師（junior engineer）的工作。假使您正好有這樣的需要，我很樂意收到您的來信。</p>
+            <p>Hi, 我是Miiko，<span class="underline">我正在找前端工程師（junior engineer）的工作</span>。假使您正好有這樣的需要，我很樂意收到您的來信。</p>
           </div>
         </div>
       </div>
@@ -54,6 +54,10 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 /*大、中、小網共用樣式*/
+.app-about-me {
+  padding-top: 4em;
+}
+
 .about-me {
   display: flex;
 }

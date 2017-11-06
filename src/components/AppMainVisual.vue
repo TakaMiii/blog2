@@ -112,6 +112,8 @@ export default {
     text-align: center;
   }
 
+/*網頁內容指示*/
+
 @media screen and (max-width:576px) {
   .invite-container{
     display: flex;

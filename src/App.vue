@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <index v-if="homePage" v-on:CheckAboutMe="openAboutme"></index>
+    <index v-if="homepage" v-on:CheckAboutMe="openAboutme"></index>
     <about-me v-if="aboutMePage" v-on:clickHome="backHome"></about-me>
   </div>
 </template>
@@ -20,17 +20,17 @@ export default {
   data () {
     return {
       // 換頁機制
-      homePage: true,
+      homepage: true,
       aboutMePage: false
     }
   },
   methods: {
     openAboutme: function () {
-      this.homePage = false
+      this.homepage = false
       this.aboutMePage = true
     },
     backHome: function () {
-      this.homePage = true
+      this.homepage = true
       this.aboutMePage = false
     }
   }
@@ -80,6 +80,10 @@ p {
 
 img {
   width: 100%;
+}
+
+.underline {
+  border-bottom: 2px solid #07dc8e;
 }
 
 @media screen and (max-width:992px) {
