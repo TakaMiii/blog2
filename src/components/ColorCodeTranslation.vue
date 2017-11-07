@@ -100,7 +100,8 @@ export default {
 
 .show-color {
   height: 15em;
-  border: 1px solid black;
+  border: 1px solid #dededf;
+  border-radius: 1%;
 }
 
 @media screen and (max-width:576px){
