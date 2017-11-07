@@ -1,8 +1,8 @@
 <template>
   <div id="index">
     <app-nav v-on:CheckAboutMe="turnOnAboutme"></app-nav>
-    <main-visual></main-visual>
-    <app-items></app-items>
+    <main-visual v-bind:homepage="homepage"></main-visual>
+    <app-items v-on:goToArticle="checkArticle"></app-items>
     <app-footer></app-footer>
   </div>
 </template>
@@ -17,6 +17,7 @@ import AppFooter from '../components/AppFooter.vue'
 
 export default {
   name: 'app',
+  props: ['homepage'],
   components: {
     'MainVisual': MainVisual,
     'AppNav': AppNav,
@@ -26,6 +27,9 @@ export default {
   methods: {
     turnOnAboutme () {
       this.$emit('CheckAboutMe')
+    },
+    checkArticle () {
+      this.$emit('goToArticle')
     }
   }
 }

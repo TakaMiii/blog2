@@ -71,7 +71,6 @@ export default {
   border: 0;
   border-bottom: 1px solid #07dc8e;
   margin-top: 1em;
-  outline:none;
 }
 
 .input-style {

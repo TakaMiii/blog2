@@ -2,7 +2,7 @@
   <div class="nav">
     <ul class="list-container">
       <li><a href="#" class="nav-a-style" v-on:click="backHome">HOME</a></li>
-      <li><a href="#" class="nav-a-style" v-on:click="turnPage">ABOUT ME</a></li>
+      <li><a href="#" class="nav-a-style" v-on:click="toAboutMe">ABOUT ME</a></li>
     </ul>
   </div>
 </template>
@@ -17,7 +17,7 @@ export default {
     }
   },
   methods: {
-    turnPage: function () {
+    toAboutMe: function () {
       this.$emit('CheckAboutMe')
     },
     backHome: function () {

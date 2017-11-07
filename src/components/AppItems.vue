@@ -1,6 +1,6 @@
 <template>
   <div class="items">
-    <div class="item" v-for="item in items">
+    <div class="item" v-for="item in items" v-on:click="checkArticle">
       <div class="img-size">
         <img class="item-img" v-bind:src="item.coverImage">
       </div>
@@ -31,8 +31,8 @@ export default {
       msg: 'nav',
       items: [
         { coverImage: picture1,
-          itemTitle: '紅色龍是部好小說',
-          date: '2017/5/20'
+          itemTitle: '色碼轉RGB',
+          date: '2017/11/07'
         },
         { coverImage: picture2,
           itemTitle: '不過我比較喜歡另一本',
@@ -64,10 +64,12 @@ export default {
         }
       ]
     }
+  },
+  methods: {
+    checkArticle () {
+      this.$emit('goToArticle')
+    }
   }
-   // mounted: function mounted () {
-
-  // }
 }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
