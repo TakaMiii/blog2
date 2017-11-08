@@ -1,8 +1,8 @@
 <template>
   <div class="nav">
     <ul class="list-container">
-      <li><a href="#" class="nav-a-style" v-on:click="backHome">HOME</a></li>
-      <li><a href="#" class="nav-a-style" v-on:click="toAboutMe">ABOUT ME</a></li>
+      <li><a href="#" class="nav-a-style js-nav-style" v-on:click="backHome">HOME</a></li>
+      <li><a href="#" class="nav-a-style js-nav-style" v-on:click="toAboutMe">ABOUT ME</a></li>
     </ul>
   </div>
 </template>
@@ -19,9 +19,15 @@ export default {
   methods: {
     toAboutMe: function () {
       this.$emit('CheckAboutMe')
+      this.focusNavStyle()
     },
     backHome: function () {
       this.$emit('clickHome')
+      this.focusNavStyle()
+    },
+    focusNavStyle: function () {
+      let navItem = document.querySelectorAll('.js-nav-style')
+      console.log(navItem)
     }
   }
 }

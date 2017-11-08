@@ -1,13 +1,17 @@
 <template>
   <div class="color-code-components">
     <div class="color-code-container">
-      <div class="input-color-block">
+      <div class="input-color-bng">
         <div class="row">
           <input type="text" class="input-color" placeholder="輸入色碼" v-model="hexcolor">
         </div>
         <div class="row">
           <span>RGB :</span>
           <div class="rgb-show">{{ rgbcolor.R }} {{ rgbcolor.G }} {{ rgbcolor.B }}</div>
+        </div>
+        <div class="row">
+          <span>hsl :</span>
+          <div class="rgb-show">{{ hslcolor.H }} {{ hslcolor.S }} {{ hslcolor.L }}</div>
         </div>
       </div>
       <div class="show-color js-show-color" v-bind:style="{ background: hexcolor }"></div>
@@ -26,6 +30,11 @@ export default {
         R: '',
         G: '',
         B: ''
+      },
+      hslcolor: {
+        H: '',
+        S: '',
+        L: ''
       }
     }
   },
@@ -33,6 +42,7 @@ export default {
     'hexcolor': function () {
       this.transformToRGB()
       this.keycap()
+      this.transformTohsl(this.rgbcolor.R, this.rgbcolor.G, this.rgbcolor.B)
     }
   },
   methods: {
@@ -52,7 +62,47 @@ export default {
         let colorString = backgroundColor.toString().slice(4, -1) // rgb(225,225,225)
         this.rgbcolor.R = colorString.split(',')[0]
         this.rgbcolor.G = colorString.split(',')[1]
-        this.rgbcolor.G = colorString.split(',')[2]
+        this.rgbcolor.B = colorString.split(',')[2]
+      }
+    },
+    transformTohsl: function (r, g, b) {
+      let rgbArray = [r / 255, g / 255, b / 255]
+      let maxrgb = rgbArray[0]
+      let minrgb = rgbArray[0]
+      let gap
+      let i = 0
+
+      // 找出RGB裡最大的數值
+      for (i = 1; i < rgbArray.length; i++) {   // 65, 225 ,18
+        if (maxrgb < rgbArray[i]) {
+          maxrgb = rgbArray[i]
+        }
+      }
+      // 找出RGB裡最小的數值
+      for (i = 1; i < rgbArray.length; i++) {   // 65, 225 ,18
+        if (minrgb > rgbArray[i]) {
+          minrgb = rgbArray[i]
+        }
+      }
+
+      gap = maxrgb - minrgb
+
+      // 取hsl中的h值
+      if (maxrgb === rgbArray[0]) {
+        this.hslcolor.H = Math.floor(60 * ((rgbArray[1] - rgbArray[2]) / gap % 6))
+      } else if (maxrgb === rgbArray[1]) {
+        this.hslcolor.H = Math.floor(60 * ((rgbArray[2] - rgbArray[0]) / gap + 2))
+      } else {
+        this.hslcolor.H = Math.floor(60 * ((rgbArray[0] - rgbArray[1]) / gap + 4))
+      }
+      // 取hsl中的l值
+      let exl = ((maxrgb + minrgb) / 2)
+      this.hslcolor.L = Math.floor(exl * 100)
+      // 取hsl中的s值
+      if (exl < 0.5) {
+        this.hslcolor.S = Math.floor(gap / (maxrgb + minrgb) * 100)
+      } else {
+        this.hslcolor.S = Math.floor(gap / (2 - maxrgb - minrgb) * 100)
       }
     },
     keycap: function () {
@@ -75,7 +125,7 @@ export default {
   align-items: center;
 }
 
-.input-color-block {
+.input-color-bng {
   display: flex;
   flex-direction: column;
 }
@@ -110,7 +160,7 @@ export default {
     margin: 2.5em 0;
   }
 
-  .input-color-block {
+  .input-color-bng {
     width: 90%;
   }
 
@@ -134,7 +184,7 @@ export default {
     width: 50%;
   }
 
-  .input-color-block {
+  .input-color-bng {
     width: 40%;
   }
 }
