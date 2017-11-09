@@ -236,11 +236,6 @@ export default {
   font-weight: 300;
 }
 
-.text-color, .input-text {
-  padding-top: 2em;
-  padding-bottom: .5em;
-}
-
 @media screen and (max-width:576px){
   .color-code-container {
     flex-direction:column;
@@ -259,6 +254,11 @@ export default {
   .rgb-show {
     padding-left: .8rem;
   }
+
+  .text-color, .input-text, .input-color {
+    padding-top: 2em;
+    padding-bottom: .5em;
+  }
 }
 
 @media screen and (min-width:577px) and (max-width:992px){
@@ -273,6 +273,11 @@ export default {
 
   .input-block {
     width: 40%;
+  }
+
+  .text-color, .input-text, .input-color {
+    padding-top: 1.5em;
+    padding-bottom: .5em;
   }
 }
 
@@ -298,6 +303,10 @@ export default {
 
   .add-text-btn {
     width: 4em;
+  }
+  .text-color {
+    padding-top: 1em;
+    padding-bottom: .5em;
   }
 }
 </style>

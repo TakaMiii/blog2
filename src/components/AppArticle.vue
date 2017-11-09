@@ -1,11 +1,11 @@
 <template>
   <div class="app-article-container">
       <div class="blog-article">
-        <h2>色碼轉RGB</h2>
+        <h2>色碼轉RGB、HSL</h2>
         <section class="article-text">
-          <p>把色碼轉成RGB功能，之後會嘗試擴充hsl。</p>
-          <p>把hex色票（共6碼）分成RR、BB、GG三組，再分別將這三組數字轉成十進位。</p>
-          <p>考慮到輸入的色碼不足六碼的情況，外面加寫了一個判斷式，不足六碼直接抓瀏覽器呈現出的顏色色碼，再拆分成成十進位。
+          <p>把色碼轉成RGB、HSL格式，並在顏色上進行文字配色。</p>
+          <p>把hex色票（共6碼）分成RR、BB、GG三組，再分別將這三組數字轉成十進位，再將十進位轉成HSL。</p>
+          <p>考慮到輸入的色碼不足六碼的情況，加寫了一個判斷式，不足六碼直接抓瀏覽器呈現出的顏色色碼，當作顯色、運算依據。
           </p>
         </section>
       </div>
@@ -19,9 +19,6 @@ export default {
   data () {
     return {
     }
-  },
-  methods: {
-
   }
 }
 </script>
