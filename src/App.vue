@@ -92,7 +92,7 @@ p {
   text-align: justify;
 }
 
-input, textarea {
+input, textarea, button {
   outline:none;
 }
 
