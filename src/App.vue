@@ -88,7 +88,7 @@ h4 {
 
 p {
   color: #635656;
-  font-weight: 400;
+  font-weight: 300;
   text-align: justify;
 }
 
@@ -98,6 +98,10 @@ input, textarea, button {
 
 img {
   width: 100%;
+}
+
+.bold {
+  font-weight: 900;
 }
 
 .underline {

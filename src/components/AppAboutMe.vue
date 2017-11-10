@@ -2,18 +2,17 @@
   <div class="app-about-me">
     <div>
       <div class="about-me about-miiko">
-        <div class="miiko-img-container">
-          <img src="../assets/bette.png">
-        </div>
+        <div class="miiko-img-container"></div>
         <div class="about-miiko-contect">
           <h3>ABOUT MIIKO</h3>
           <div class="depiction">
-            <h4>Miiko，工作時間3年，曾任網頁企劃、行銷PM</h4>
-            <p>Hi, 我是Miiko，<span class="underline">我正在找前端工程師（junior engineer）的工作</span>。假使您正好有這樣的需要，我很樂意收到您的來信。</p>
+            <p>Hi, I am Taka Miiko. I was a marcom, copy writer of an app.</p>
+            <p><span class="underline"> But I really hope I can be a good developer of website,</span> so I star to look for junior engineer jobs.</p>
+            <p>My  work-related skills include: <span class="bold">RWD, jQuery, basic JavaScript,  photoshop.</span></p>
           </div>
         </div>
       </div>
-      <div class="about-me about-mike">
+      <!-- <div class="about-me about-mike">
         <div class="mike-img-container">
           <img src="../assets/mike.jpg">
         </div>
@@ -24,17 +23,25 @@
             <p>Mike是工作很久的php工程師，也是教Miiko coding的人。他也快換工作了，不過他對工作自有一份期許和標準。</p>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
 
     <div class="our-story-container">
       <div class="our-story">
-        <p>
+        <img class="adornment" src="../assets/decorative.png">
+          <div class="about-me-2">
+            <h3>ABOUT ME DEEP A MORE</h3>
+            <p>I got my first job in 2014, before that I had studied Art history in the school. </p>
+            <p>When I'm not working, I always watch old movies, coding my personal project (like this blog).
+            <p>Although I make the visual display for my personal project, be a visual designer is not my objective.</p>
+          </div>
+        <img class="under-adornment" src="../assets/decorative.png">
+        <!-- <p>
           Mike和Miiko是2014年在時間軸認識的，可能都有一點工作狂傾向，每天都在聊專案、軟體開發。
         </p>
         <p>
           MiiKo畢業於藝術系，兩人一起做東西時，會包辦規劃、視覺、切版；技術方向或後端架構則由Mike指導、開發。
-        </p>
+        </p> -->
       </div>
     </div>
   </div>
@@ -64,7 +71,6 @@ export default {
 
 .depiction {
   line-height: 2em;
-  letter-spacing: .02em;
 }
 /*大、中、小網共用樣式結束*/
 
@@ -74,34 +80,56 @@ export default {
 }
 
 .miiko-img-container {
-  display: flex;
-  align-items: center;
+  background: url('../assets/bette.png') no-repeat;
+  background-size: auto 100%;
+  background-position: 20% 50%;
 }
 
 .our-story-container {
   background: url('../assets/about-bng.jpg') no-repeat 50% 30%;
-  height: 30em;
+  height: 35em;
   border: 1px solid #FFFFFF;
   border-right: 0px;
   border-left: 0px;
   background-attachment: fixed;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
+  overflow: hidden;
 }
 
 .our-story {
-  width: 60%;
+  width: 43%;
+  padding: 3em 8% 3em 15%;
+  background: hsla(20, 30%, 10%, 0.3);
+}
+
+.about-me-2 {
+  padding: 1.1em 0;
+}
+
+.our-story h3, .our-story p{
+  color: hsla( 21, 10%, 80%, 1);
+}
+
+.our-story h3 {
+  text-align: center;
 }
 
 .our-story p{
-   color: hsla( 21, 10%, 78%, 1);
    font-weight: 300;
-   font-size: 1.1em;
-   letter-spacing: .2em;
+   font-size: 1em;
    line-height: 1.8em;
 }
-
+/*分隔線樣式*/
+.adornment, .under-adornment {
+  opacity: 0.7;
+  width: 100%;
+  text-align: center;
+}
+.under-adornment {
+  transform: rotate(180deg);
+}
 @media screen and (max-width:576px){
   .about-miiko, .about-mike {
     flex-direction: column;
@@ -139,6 +167,7 @@ export default {
 @media screen and (min-width:993px){
   .about-me {
     align-items: center;
+    height: 25em;
   }
 
   .about-miiko {
@@ -153,6 +182,7 @@ export default {
 
   .about-miiko-contect {
     width: 30%;
+    padding-bottom: 2.5em;
   }
 
   .about-mike-contect {
@@ -162,6 +192,7 @@ export default {
 
   .miiko-img-container {
     width: 60%;
+    height: 100%;
   }
 
   .mike-img-container {

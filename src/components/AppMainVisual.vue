@@ -13,7 +13,7 @@ export default {
   name: 'MainVisual',
   data () {
     return {
-      msg: 'click anywhere, please',
+      msg: 'Welcome to Taka Miiko\'s blog ',
       // 這裡是ctx的設定值
       WaveValue: {
         poY: 300,

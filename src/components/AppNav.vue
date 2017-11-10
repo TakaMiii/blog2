@@ -2,7 +2,8 @@
   <div class="nav">
     <ul class="list-container">
       <li><a href="#" class="nav-a-style js-nav-style" v-on:click="backHome">HOME</a></li>
-      <li><a href="#" class="nav-a-style js-nav-style" v-on:click="toAboutMe">ABOUT ME</a></li>
+       <li><a href="#" class="nav-a-style js-nav-style" v-on:click="toAboutMe">ABOUT ME</a></li>
+      <li><a href="#" class="nav-a-style js-nav-style">ABOUT THIS PORJECT</a></li>
     </ul>
   </div>
 </template>
@@ -50,15 +51,19 @@ export default {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 15rem;
+  width: 25rem;
   padding-left: 2rem;
 }
 
 .list-container li {
-  width: 50%;
   height: 100%;
   display: flex;
   align-items: center;
+}
+
+.list-container a {
+  padding-left: .6em;
+  padding-right: .6em;
 }
 
 .nav-a-style {
@@ -83,4 +88,17 @@ export default {
     padding-left: 0;
   }
 }
+
+@media screen and (min-width:577px) and (max-width:992px) {
+  .list-container {
+    width: 100%;
+    padding-left: 0;
+    display: flex;
+    justify-content: space-around;
+  }
+  .list-container li {
+    width: 30%;
+  }
+}
+
 </style>
