@@ -1,14 +1,16 @@
 <template>
   <div id="app">
-    <index v-if="homepage" v-on:CheckAboutMe="openAboutme" v-on:goToArticle="checkArticle"></index>
-    <about-me v-if="aboutMePage" v-on:clickHome="backHome"></about-me>
-    <article-page v-if="articlePage" v-on:clickHome="backHome" v-on:CheckAboutMe="openAboutme"></article-page>
+    <index v-if="homepage" v-on:CheckAboutMe="openAboutme" v-on:goToArticle="checkArticle" v-on:AboutProject="openAboutProject"></index>
+    <about-me v-if="aboutMePage" v-on:clickHome="backHome" v-on:AboutProject="openAboutProject"></about-me>
+    <about-project v-if="aboutProject" v-on:clickHome="backHome" v-on:CheckAboutMe="openAboutme"></about-project>
+    <article-page v-if="articlePage" v-on:clickHome="backHome" v-on:CheckAboutMe="openAboutme" v-on:AboutProject="openAboutProject"></article-page>
   </div>
 </template>
 
 <script>
 import index from './pages/index.vue'
 import AboutMe from './pages/AboutMe.vue'
+import AboutProject from './pages/AboutProject.vue'
 import ArticlePage from './pages/ArticlePage.vue'
 
 export default {
@@ -16,14 +18,16 @@ export default {
   components: {
     'index': index,
     'AboutMe': AboutMe,
-    'ArticlePage': ArticlePage
+    'ArticlePage': ArticlePage,
+    'AboutProject': AboutProject
   },
   data () {
     return {
       // 換頁機制
       homepage: true,
       aboutMePage: false,
-      articlePage: false
+      articlePage: false,
+      aboutProject: false
     }
   },
   methods: {
@@ -31,15 +35,24 @@ export default {
       this.homepage = false
       this.aboutMePage = true
       this.articlePage = false
+      this.aboutProject = false
+    },
+    openAboutProject: function () {
+      this.homepage = false
+      this.aboutMePage = false
+      this.articlePage = false
+      this.aboutProject = true
     },
     backHome: function () {
       this.homepage = true
       this.aboutMePage = false
       this.articlePage = false
+      this.aboutProject = false
     },
     checkArticle () {
       this.homepage = false
       this.articlePage = true
+      this.aboutProject = false
     }
   }
 }
@@ -77,12 +90,12 @@ h2 {
 }
 
 h3 {
-  font-size: 1.3em;
+  font-size: 1.6em;
   font-weight: 300;
 }
 
 h4 {
-  font-size: 1em;
+  font-size: 1.4em;
   font-weight: 600;
 }
 

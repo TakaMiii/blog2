@@ -121,7 +121,9 @@ export default {
   }
 
   .invite-style {
-    padding: .6em .5em;
+    margin: .6em .5em;
+    padding: 1em .3em;
+    text-align: left;
   }
 }
 

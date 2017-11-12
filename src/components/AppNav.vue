@@ -2,8 +2,8 @@
   <div class="nav">
     <ul class="list-container">
       <li><a href="#" class="nav-a-style js-nav-style" v-on:click="backHome">HOME</a></li>
-       <li><a href="#" class="nav-a-style js-nav-style" v-on:click="toAboutMe">ABOUT ME</a></li>
-      <li><a href="#" class="nav-a-style js-nav-style">ABOUT THIS PORJECT</a></li>
+      <li><a href="#" class="nav-a-style js-nav-style" v-on:click="toAboutMe">ABOUT ME</a></li>
+      <li><a href="#" class="nav-a-style js-nav-style" v-on:click="toAboutProject">ABOUT THIS PORJECT</a></li>
     </ul>
   </div>
 </template>
@@ -20,6 +20,10 @@ export default {
   methods: {
     toAboutMe: function () {
       this.$emit('CheckAboutMe')
+      this.focusNavStyle()
+    },
+    toAboutProject: function () {
+      this.$emit('AboutProject')
       this.focusNavStyle()
     },
     backHome: function () {

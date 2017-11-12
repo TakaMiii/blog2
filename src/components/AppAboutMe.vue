@@ -30,7 +30,7 @@
       <div class="our-story">
         <img class="adornment" src="../assets/decorative.png">
           <div class="about-me-2">
-            <h3>ABOUT ME DEEP A MORE</h3>
+            <h3>MORE MIIKO</h3>
             <p>I got my first job in 2014, before that I had studied Art history in the school. </p>
             <p>When I'm not working, I always watch old movies, coding my personal project (like this blog).
             <p>Although I make the visual display for my personal project, be a visual designer is not my objective.</p>

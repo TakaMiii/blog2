@@ -1,6 +1,6 @@
 <template>
   <div id="about-me">
-    <app-nav v-on:clickHome="turnHomePage"></app-nav>
+    <app-nav v-on:clickHome="turnHomePage" v-on:AboutProject="toAboutProject" ></app-nav>
     <app-about-me></app-about-me>
     <app-footer></app-footer>
   </div>
@@ -25,6 +25,9 @@ export default {
   methods: {
     turnHomePage: function () {
       this.$emit('clickHome')
+    },
+    toAboutProject () {
+      this.$emit('AboutProject')
     }
   }
 }
