@@ -9,7 +9,7 @@
       <h3>ABOUT THE PROJECT</h3>
       <section>
         <h4 class="about-project-h4">01. Start</h4>
-        <p>When I start a project, the more important thing is decide a clear direction of this project. Even though it is always   changed with so many reasons.</p>
+        <p>When I start a project, the more important thing is decide a clear direction of this project. Even though it is always changed with so many reasons.</p>
         <p>Just like this blog, my original intention is get a junior engineer jobs by it.</p>
         <p>So, I make a PBI to decide my work items, and all the items should be around my goal.</p>
       </section>
@@ -38,7 +38,7 @@
         <div>
           <p class="pbi-title">My PBI</p>
           <ol>
-            <li>Make a flowchart of website.</li>
+            <li>Make a flow chart of the website.</li>
             <li>Design web pages.</li>
             <li>Install webpack and Vue.js.</li>
             <li>Code HTML, CSS on the components of Vue.js.</li>
@@ -52,6 +52,16 @@
       </section>
       <section>
         <h4 class="about-project-h4">02. Do it</h4>
+          <p>I followed my flow chart and Vue.js to build my website.</p>
+          <p>Sometimes, I reprogram the HTML and CSS, when I find that the UI is not easy to use.</p>
+          <p>And I add a new page - "About this project", because I thing it's important after I took some interviews.</p>
+          <img class="do-it-img" src="../assets/flowchart-big.png">
+      </section>
+      <section>
+        <h4 class="about-project-h4">03. Revise</h4>
+        <p>Before I start to code, I didn't plan too more functions or pages, because I hope I can get a MVP in a short time.</p>
+        <p>But sometimes, I got some feebacks from interview, and it may change my PBI.</p>
+        <p>However so many ideas, I still want this blog go live soon. So when the backend engineer（he is my teacher, too）provide the API documents, I will stop working for other items.</p>
       </section>
     </article>
   </div>
@@ -196,6 +206,10 @@ ol>li{
   border: 1px solid hsla(190, 70%, 85%, 1);
   border-top: 0;
   border-left: 0;
+}
+
+.do-it-img {
+  width: auto;
 }
 
 @media screen and (max-width:576px){
