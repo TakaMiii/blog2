@@ -1,7 +1,7 @@
 <template>
-  <div id="about-me">
-    <app-nav v-on:clickHome="turnHomePage" v-on:chickAboutPeoject="toAboutProject"></app-nav>
-    <app-about-me></app-about-me>
+  <div id="about-project">
+    <app-nav v-on:clickHome="turnHomePage"></app-nav>
+    <app-about-project></app-about-project>
     <app-footer></app-footer>
   </div>
 </template>
@@ -11,7 +11,7 @@
 <script>
 import AppNav from '../components/AppNav.vue'
 import MainVisual from '../components/AppMainVisual.vue'
-import AppAboutMe from '../components/AppAboutMe.vue'
+import AppAboutProject from '../components/AppAboutProject.vue'
 import AppFooter from '../components/AppFooter.vue'
 
 export default {
@@ -19,15 +19,12 @@ export default {
   components: {
     'MainVisual': MainVisual,
     'AppNav': AppNav,
-    'AppAboutMe': AppAboutMe,
+    'AppAboutProject': AppAboutProject,
     'AppFooter': AppFooter
   },
   methods: {
     turnHomePage: function () {
       this.$emit('clickHome')
-    },
-    toAboutProject () {
-      this.$emit('chickAboutPeoject')
     }
   }
 }

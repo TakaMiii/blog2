@@ -1,9 +1,23 @@
 <template>
   <div class="nav">
-    <ul class="list-container">
+  <!-- 小網Nav -->
+  <button type="button" v-on:click="openNav = !openNav" class="nav-btn only-small-screen">
+    <div v-bind:class="{navbtnstyle: !openNav, closebtnstyle: openNav}"></div>
+  </button>
+   <transition name="fade">
+    <ul v-if="openNav" class="list-container">
       <li><a href="#" class="nav-a-style js-nav-style" v-on:click="backHome">HOME</a></li>
       <li><a href="#" class="nav-a-style js-nav-style" v-on:click="toAboutMe">ABOUT ME</a></li>
+      <li><a href="#" class="nav-a-style js-nav-style" v-on:click="toAboutPeoject">ABOUT THE PROJECT</a></li>
     </ul>
+  </transition>
+  <!-- 小網Nav結束 -->
+  <ul class="list-container only-big-screen">
+    <li><a href="#" class="nav-a-style js-nav-style" v-on:click="backHome">HOME</a></li>
+    <li><a href="#" class="nav-a-style js-nav-style" v-on:click="toAboutMe">ABOUT ME</a></li>
+    <li><a href="#" class="nav-a-style js-nav-style" v-on:click="toAboutPeoject">ABOUT THE PROJECT</a></li>
+  </ul>
+
   </div>
 </template>
 
@@ -13,7 +27,8 @@ export default {
   name: 'AppNav',
   data () {
     return {
-      msg: 'nav'
+      msg: 'nav',
+      openNav: false
     }
   },
   methods: {
@@ -24,6 +39,9 @@ export default {
     backHome: function () {
       this.$emit('clickHome')
       this.focusNavStyle()
+    },
+    toAboutPeoject: function () {
+      this.$emit('chickAboutPeoject')
     },
     focusNavStyle: function () {
       let navItem = document.querySelectorAll('.js-nav-style')
@@ -47,18 +65,8 @@ export default {
 }
 
 .list-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 15rem;
+  width: 25rem;
   padding-left: 2rem;
-}
-
-.list-container li {
-  width: 50%;
-  height: 100%;
-  display: flex;
-  align-items: center;
 }
 
 .nav-a-style {
@@ -78,9 +86,125 @@ export default {
 }
 
 @media screen and (max-width:576px) {
+  .nav-btn {
+    width: 5em;
+    padding-left: 1em;
+    z-index: 20;
+  }
+  .navbtnstyle{
+    position: relative;
+    width: 100%;
+    height: 2em;
+    border: 2px solid hsla(0, 1%, 50%, 1);
+    border-right: 0;
+    border-left: 0;
+    transition: all .8s ease;
+  }
+
+  .navbtnstyle:before {
+    content: '';
+    width: 0%;
+    position: absolute;
+    border-top: 2px solid hsla(0, 1%, 50%, 1.2);
+    top: 48%;
+    left: 0;
+    transform: rotate(0deg);
+    transition:all .8s ease;
+  }
+
+  .navbtnstyle:after {
+    content: '';
+    width: 100%;
+    position: absolute;
+    border-top: 2px solid hsla(0, 1%, 50%, 1.2);
+    top: 48%;
+    left: 0;
+    transition:all .8s ease;
+  }
+
+/*  關閉Nav的按鈕樣式*/
+  .closebtnstyle {
+    position: relative;
+    width: 100%;
+    height: 2em;
+    border: 2px solid hsla(0, 1%, 50%, 0);
+    border-right: 0;
+    border-left: 0;
+    transition: all .8s ease;
+  }
+
+  .closebtnstyle:before {
+    content: '';
+    width: 110%;
+    position: absolute;
+    border-top: 2px solid hsla(0, 1%, 50%, 1.2);
+    top: 48%;
+    left: 0;
+    transform: rotate(45deg);
+    transition:all .8s ease;
+  }
+
+  .closebtnstyle:after {
+    content: '';
+    width: 110%;
+    position: absolute;
+    border-top: 2px solid hsla(0, 1%, 50%, 1.2);
+    top: 48%;
+    left: 0;
+    transform: rotate(-45deg);
+    transition:all .8s ease;
+  }
+
+
   .list-container {
     width: 100%;
-    padding-left: 0;
+    position: absolute;
+    padding: 4em 0em;
+    display: flex;
+    flex-direction:column;
+    background: hsla(190, 0%, 99%, 1);
+    box-shadow: 0px 1px 5px 2px hsla(190, 0%, 15%, .2)
+  }
+
+  .list-container li {
+    width: 80%;
+    margin: 0 10%;
+  }
+
+  .nav-a-style {
+    height: 100%;
+    padding: 1.8em 0;
+    font-size: 100%;
+  }
+
+/*  小網nav icon動畫*/
+  .fade-enter-active, .fade-leave-active {
+    transition: all .8s ease;
+  }
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+    transform: rotate(90deg);
+  }
+
+  .only-big-screen {
+    display: none;
+  }
+}
+
+@media screen and (min-width:577px) {
+  .list-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 25rem;
+    padding-left: 2rem;
+  }
+
+  .list-container li {
+    height: 100%;
+    padding: 0 1em;
+    display: flex;
+    align-items: center;
   }
 }
 </style>

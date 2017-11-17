@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <index v-if="homepage" v-on:CheckAboutMe="openAboutme" v-on:goToArticle="checkArticle"></index>
+    <index v-if="homepage" v-on:CheckAboutMe="openAboutme" v-on:goToArticle="checkArticle" v-on:chickAboutPeoject="openAboutProject"></index>
     <about-me v-if="aboutMePage" v-on:clickHome="backHome"></about-me>
+    <about-project v-if="aboutProject"></about-project>
     <article-page v-if="articlePage" v-on:clickHome="backHome" v-on:CheckAboutMe="openAboutme"></article-page>
   </div>
 </template>
@@ -10,12 +11,14 @@
 import index from './pages/index.vue'
 import AboutMe from './pages/AboutMe.vue'
 import ArticlePage from './pages/ArticlePage.vue'
+import AboutProject from './pages/AboutProject.vue'
 
 export default {
   name: 'app',
   components: {
     'index': index,
     'AboutMe': AboutMe,
+    'AboutProject': AboutProject,
     'ArticlePage': ArticlePage
   },
   data () {
@@ -23,7 +26,8 @@ export default {
       // 換頁機制
       homepage: true,
       aboutMePage: false,
-      articlePage: false
+      articlePage: false,
+      aboutProject: false
     }
   },
   methods: {
@@ -40,6 +44,12 @@ export default {
     checkArticle () {
       this.homepage = false
       this.articlePage = true
+    },
+    openAboutProject () {
+      this.aboutProject = true
+      this.homepage = false
+      this.aboutMePage = false
+      this.articlePage = false
     }
   }
 }
@@ -94,6 +104,7 @@ p {
 
 input, textarea, button {
   outline:none;
+  display: block;
 }
 
 img {
@@ -104,8 +115,20 @@ img {
   border-bottom: 2px solid #07dc8e;
 }
 
-@media screen and (max-width:992px) {
+@media screen and (max-width: 576px) {
   .only-big-screen {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 577px) and (max-width: 992px) {
+  .only-small-screen {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 993px) {
+  .only-small-screen {
     display: none;
   }
 }

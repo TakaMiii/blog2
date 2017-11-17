@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<!-- saved from url=(0024)http://localhost:8080/#/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>blog</title>
+  <style type="text/css">
+html {
+  height: 100%;
+}
+#app, body {
+  width: 100vw;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+h3, h4 {
+  color: #635656;
+}
+h2 {
+  color: #4a5267;
+  font-weight: 600;
+  letter-spacing: .2em;
+}
+h3 {
+  font-size: 1.3em;
+  font-weight: 300;
+}
+h4 {
+  font-size: 1em;
+  font-weight: 600;
+}
+p {
+  color: #635656;
+  font-weight: 400;
+  text-align: justify;
+}
+input, textarea, button {
+  outline:none;
+  display: block;
+}
+img {
+  width: 100%;
+}
+.underline {
+  border-bottom: 2px solid #07dc8e;
+}
+@media screen and (max-width: 576px) {
+.only-big-screen {
+    display: none;
+}
+}
+@media screen and (min-width: 577px) and (max-width: 992px) {
+.only-small-screen {
+    display: none;
+}
+}
+@media screen and (max-width: 993px) {
+.only-small-screen {
+    display: none;
+}
+}
+
+</style><style type="text/css">
+.nav[data-v-d1e4061e] {
+  width: 100vw;
+  height: 4em;
+  background: hsla(230, 43%, 100%, .95);
+  border-bottom: 1px solid hsla(230, 43%, 100%, 1);
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  z-index: 10;
+}
+.list-container[data-v-d1e4061e] {
+  width: 25rem;
+  padding-left: 2rem;
+}
+.list-container li[data-v-d1e4061e] {
+  height: 100%;
+  padding: 0 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.nav-a-style[data-v-d1e4061e] {
+  width: 100%;
+  height: 66%;
+  padding-top: 1.8em;
+  color: #595757;
+  font-size: .7em;
+  font-weight: 100;
+  font-family: system-ui, sans-serif;
+  text-align: center;
+}
+.nav-a-style[data-v-d1e4061e]:hover {
+  color: #09cfa3;
+  border-bottom: 3px solid #07dcac;
+}
+@media screen and (max-width:576px) {
+.nav-btn[data-v-d1e4061e] {
+    width: 5em;
+    padding-left: 1em;
+}
+.nav-btn-style[data-v-d1e4061e]{
+    position: relative;
+    width: 100%;
+    height: 2em;
+    border: 2px solid hsla(0, 1%, 50%, 1);
+    border-right: 0;
+    border-left: 0;
+}
+.nav-btn-style[data-v-d1e4061e]:after {
+    content: '';
+    width: 100%;
+    position: absolute;
+    border-top: 2px solid hsla(0, 1%, 50%, 1.2);
+    top: 48%;
+    left: 0;
+}
+.list-container[data-v-d1e4061e] {
+    width: 100%;
+    padding-left: 0;
+}
+}
+@media screen and (min-width:577px) {
+.list-container[data-v-d1e4061e] {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 25rem;
+    padding-left: 2rem;
+}
+.list-container li[data-v-d1e4061e] {
+    height: 100%;
+    padding: 0 1em;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+}
+</style><style type="text/css">
+.main-visual[data-v-417824fb] {
+    width: 100vw;
+    height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+}
+.wave[data-v-417824fb] {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: block;
+}
+
+/*click anywhere, please 邀請句共用樣式*/
+.invite-container[data-v-417824fb]{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    z-index: 2;
+}
+.invite-style[data-v-417824fb] {
+    font-family: Lato, sans-serif;
+    border-bottom: .1em solid #07dc8e;
+    font-size: 1.2em;
+    letter-spacing: .15em;
+    padding: 0 5em .6em .8em;
+    text-align: center;
+}
+
+/*網頁內容指示*/
+@media screen and (max-width:576px) {
+.invite-container[data-v-417824fb]{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+.invite-style[data-v-417824fb] {
+    padding: .6em .5em;
+}
+}
+@media screen and (min-width:577px) and (max-width:992px){
+.invite-container[data-v-417824fb]{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack:end;
+        -ms-flex-pack:end;
+            justify-content:flex-end;
+    height: 80%;
+}
+}
+@media screen and (min-width:993px){
+.invite-container[data-v-417824fb]{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack:end;
+        -ms-flex-pack:end;
+            justify-content:flex-end;
+    height: 80%;
+}
+.invite-style[data-v-417824fb] {
+    font-size: 1.2em;
+}
+}
+
+</style><style type="text/css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*電腦、平板共同樣式。只有手機版不套用，故手機版樣式於media query覆寫*/
+.items[data-v-786060e4] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.item[data-v-786060e4] {
+  width: 100%;
+  margin: 1.5em 1%;
+  margin-bottom: 0;
+  border: 1px solid hsla(10, 10%, 95%, 1);
+  border-radius: 2%;
+  -webkit-box-shadow: 2px 3px 6px 2px hsla(70, 30%, 95%, .2);
+          box-shadow: 2px 3px 6px 2px hsla(70, 30%, 95%, .2);
+  overflow: hidden;
+}
+
+/*嗰種item互動效果 ＋ 首頁文章顯圖太大會被裁切*/
+.img-size[data-v-786060e4] {
+  width: 100%;
+  height: 14em;
+  position: relative;
+  overflow: hidden;
+}
+
+/*hover item，圖片會緩慢押上一層白色*/
+.img-size[data-v-786060e4]:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0em;
+  bottom: 0em;
+  background: hsla(230, 43%, 100%, 0);
+  -webkit-transition-duration: .5s;
+          transition-duration: .5s;
+  -webkit-transition-property: background;
+  transition-property: background;
+}
+.item:hover .img-size[data-v-786060e4]:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0em;
+  bottom: 0em;
+  background: hsla(230, 43%, 100%, 0.7);
+}
+
+/*hover item，裡面的h3會變顏色*/
+.item:hover .item-h3[data-v-786060e4] {
+  font-weight: 600;
+  margin-left: 20px;
+  color: #02b490;
+}
+.item-text[data-v-786060e4] {
+  padding: 1.5em 1.2em;
+  padding-top: 0;
+}
+.item-h3[data-v-786060e4] {
+  position: relative;
+  line-height: 1.8em;
+  font-family: SimSun, PingFang SC;
+  color: hsla(35, 94%, 10%, 1);
+  font-weight: 300;
+  letter-spacing: .15rem;
+  text-align: justify;
+}
+.item-h3[data-v-786060e4]:before {
+  content: '';
+  position: absolute;
+  width: 0px;
+  margin-right: .8em;
+  background: #0bc4a3;
+}
+.item:hover .item-h3[data-v-786060e4]:before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 100%;
+  left: -20px;
+  top: 2px;
+  margin-right: .8em;
+  background: #0bc4a3;
+}
+.item-img[data-v-786060e4] {
+  width: 100%;
+}
+.item-date[data-v-786060e4] {
+  color: #595757;
+  font-weight: lighter;
+}
+@media screen and (max-width:576px) {
+.items[data-v-786060e4] {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 1em 5%;
+}
+.item[data-v-786060e4] {
+    width: 100%;
+    margin: 1.5em 0;
+}
+}
+@media screen and (min-width:577px) and (max-width:992px){
+.items[data-v-786060e4] {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 2em 5vw;
+    padding-bottom: 8em;
+}
+.item[data-v-786060e4] {
+    width: 47%;
+}
+}
+@media screen and (min-width:993px){
+.items[data-v-786060e4] {
+    padding: 2em 16vw;
+}
+.item[data-v-786060e4] {
+    width: 31%;
+}
+}
+
+</style><style type="text/css">
+.footer[data-v-60c8b43d] {
+  background: hsla(190, 60%, 96%, 1);
+}
+.footer-bottom[data-v-60c8b43d] {
+  background: #333;
+  border-top: 2px solid #FFFFFF;
+  height: 2rem;
+  font-weight: 200;
+  font-size: 13px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding-right: 5rem;
+}
+.footer-bottom p[data-v-60c8b43d]{
+  color: hsla(226, 25%, 100%, .5);
+  font-weight: 300;
+  letter-spacing: .15em;
+}
+.contact-me[data-v-60c8b43d] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.btn-container[data-v-60c8b43d] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+.input-style[data-v-60c8b43d], .input-msg-style[data-v-60c8b43d] {
+  background-color: hsla(190, 60%, 96%, 1);
+  border: 0;
+  border-bottom: 1px solid #07dc8e;
+  margin-top: 1em;
+}
+.input-style[data-v-60c8b43d] {
+  height: 3em;
+}
+.input-msg-style[data-v-60c8b43d] {
+  height: 10em;
+}
+.send-letter[data-v-60c8b43d] {
+  margin-top: 2rem;
+  padding: .8em 0;
+  width: 50%;
+  background: #FFFFFF;
+  border: 1px solid #07dc9d;
+  border-radius: 3px;
+  color: #333;
+  outline: none;
+}
+@media screen and (max-width:992px){
+.contact-me[data-v-60c8b43d] {
+    width: 90%;
+    padding: 3em 5%;
+}
+.input-style[data-v-60c8b43d], .input-msg-style[data-v-60c8b43d] {
+    font-size: .8em;
+}
+.send-letter[data-v-60c8b43d] {
+    margin-top: 2.5rem;
+    padding: 1.5em 0;
+    width: 100%;
+}
+}
+@media screen and (min-width:993px){
+.footer[data-v-60c8b43d] {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding-bottom: 0;
+    padding-left: 17%;
+}
+.contact-me[data-v-60c8b43d] {
+    width: 28%;
+    padding: 3em 0;
+}
+}
+</style><style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style></head>
+  <body style="">
+    <div id="app"><div id="index"><div data-v-d1e4061e="" class="nav"><button data-v-d1e4061e="" type="button" class="nav-btn only-small-screen"><!----></button> <ul data-v-d1e4061e="" class="list-container only-big-screen"><li data-v-d1e4061e=""><a data-v-d1e4061e="" href="http://localhost:8080/#" class="nav-a-style js-nav-style">HOME</a></li> <li data-v-d1e4061e=""><a data-v-d1e4061e="" href="http://localhost:8080/#" class="nav-a-style js-nav-style">ABOUT ME</a></li> <li data-v-d1e4061e=""><a data-v-d1e4061e="" href="http://localhost:8080/#" class="nav-a-style js-nav-style">ABOUT THE PROJECT</a></li></ul></div> <div data-v-417824fb="" class="main-visual js-main-visual"><canvas data-v-417824fb="" class="wave js-wave" width="1440" height="506"></canvas> <div data-v-417824fb="" class="invite-container"><div data-v-417824fb="" class="invite-style">click anywhere, please</div></div></div> <div data-v-786060e4="" class="items"><div data-v-786060e4="" class="item"><div data-v-786060e4="" class="img-size"><img data-v-786060e4="" src="./blog_files/item-tex1.4403893.jpg" class="item-img"></div> <div data-v-786060e4="" class="item-text"><h3 data-v-786060e4="" class="item-h3">
+        色碼轉RGB</h3> <div data-v-786060e4="" class="item-date">2017/11/07</div></div></div><div data-v-786060e4="" class="item"><div data-v-786060e4="" class="img-size"><img data-v-786060e4="" src="./blog_files/item-tex2.ca3c5cb.jpg" class="item-img"></div> <div data-v-786060e4="" class="item-text"><h3 data-v-786060e4="" class="item-h3">
+        不過我比較喜歡另一本</h3> <div data-v-786060e4="" class="item-date">2017/8/20</div></div></div><div data-v-786060e4="" class="item"><div data-v-786060e4="" class="img-size"><img data-v-786060e4="" src="./blog_files/item-tex3.769c724.jpg" class="item-img"></div> <div data-v-786060e4="" class="item-text"><h3 data-v-786060e4="" class="item-h3">
+        比如索涅奇卡就很好看</h3> <div data-v-786060e4="" class="item-date">2017/9/20</div></div></div><div data-v-786060e4="" class="item"><div data-v-786060e4="" class="img-size"><img data-v-786060e4="" src="./blog_files/item-tex4.074b054.jpg" class="item-img"></div> <div data-v-786060e4="" class="item-text"><h3 data-v-786060e4="" class="item-h3">
+        火狐狸雖然好看，但文學含量不高</h3> <div data-v-786060e4="" class="item-date">2017/10/20</div></div></div><div data-v-786060e4="" class="item"><div data-v-786060e4="" class="img-size"><img data-v-786060e4="" src="./blog_files/item-tex5.5c74027.jpg" class="item-img"></div> <div data-v-786060e4="" class="item-text"><h3 data-v-786060e4="" class="item-h3">
+        可是現在都沒有時間看小說了，很多書雖買了但都看不了</h3> <div data-v-786060e4="" class="item-date">2017/11/1</div></div></div><div data-v-786060e4="" class="item"><div data-v-786060e4="" class="img-size"><img data-v-786060e4="" src="./blog_files/item-tex6.448ec95.jpg" class="item-img"></div> <div data-v-786060e4="" class="item-text"><h3 data-v-786060e4="" class="item-h3">
+        標題六</h3> <div data-v-786060e4="" class="item-date">2017/11/5</div></div></div><div data-v-786060e4="" class="item"><div data-v-786060e4="" class="img-size"><img data-v-786060e4="" src="./blog_files/item-tex7.f3d4d61.jpg" class="item-img"></div> <div data-v-786060e4="" class="item-text"><h3 data-v-786060e4="" class="item-h3">
+        標題七</h3> <div data-v-786060e4="" class="item-date">2017/11/8</div></div></div><div data-v-786060e4="" class="item"><div data-v-786060e4="" class="img-size"><img data-v-786060e4="" src="./blog_files/item-tex8.ca556ac.jpg" class="item-img"></div> <div data-v-786060e4="" class="item-text"><h3 data-v-786060e4="" class="item-h3">
+        標題八</h3> <div data-v-786060e4="" class="item-date">2017/12/3</div></div></div></div> <div data-v-60c8b43d=""><div data-v-60c8b43d="" class="footer"><div data-v-60c8b43d="" class="contact-me"><h3 data-v-60c8b43d="">CONTACT ME</h3> <input data-v-60c8b43d="" type="text" placeholder="name" class="input-style"> <input data-v-60c8b43d="" type="email" placeholder="email address" class="input-style"> <textarea data-v-60c8b43d="" type="text" placeholder="Your message" class="input-msg-style"></textarea> <div data-v-60c8b43d="" class="btn-container"><button data-v-60c8b43d="" type="submit" class="send-letter">SENT</button></div></div></div> <div data-v-60c8b43d="" class="footer-bottom"><p data-v-60c8b43d="">© 2017, Taka Miiko &amp; Mike</p></div></div></div> <!----> <!----> <!----></div>
+    <!-- built files will be auto injected -->
+  <script type="text/javascript" src="./blog_files/app.js"></script>
+
+</body></html>

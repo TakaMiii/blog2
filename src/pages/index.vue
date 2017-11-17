@@ -1,6 +1,6 @@
 <template>
   <div id="index">
-    <app-nav v-on:CheckAboutMe="turnOnAboutme"></app-nav>
+    <app-nav v-on:CheckAboutMe="turnOnAboutme" v-on:chickAboutPeoject="toAboutProject"></app-nav>
     <main-visual v-bind:homepage="homepage"></main-visual>
     <app-items v-on:goToArticle="checkArticle"></app-items>
     <app-footer></app-footer>
@@ -30,6 +30,9 @@ export default {
     },
     checkArticle () {
       this.$emit('goToArticle')
+    },
+    toAboutProject () {
+      this.$emit('chickAboutPeoject')
     }
   }
 }
