@@ -111,10 +111,6 @@ img {
   width: 100%;
 }
 
-.underline {
-  border-bottom: 2px solid #07dc8e;
-}
-
 @media screen and (max-width: 576px) {
   .only-big-screen {
     display: none;

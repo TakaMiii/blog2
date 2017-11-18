@@ -9,7 +9,7 @@
           <h3>ABOUT MIIKO</h3>
           <div class="depiction">
             <h4>Miiko，工作時間3年，曾任網頁企劃、行銷PM</h4>
-            <p>Hi, 我是Miiko，<span class="underline">我正在找前端工程師（junior engineer）的工作</span>。假使您正好有這樣的需要，我很樂意收到您的來信。</p>
+            <p>Hi, 我是Miiko。我為了找前端工程師（junior engineer）的工作開始製作這個網頁，結果還沒有完成上線，就先找到工作了。</p>
           </div>
         </div>
       </div>
@@ -20,8 +20,8 @@
         <div class="about-mike-contect">
            <h3>ABOUT MIKE</h3>
           <div class="depiction">
-            <h4>Mike，php工程師6年，交大99級</h4>
-            <p>Mike是工作很久的php工程師，也是教Miiko coding的人。他也快換工作了，不過他對工作自有一份期許和標準。</p>
+            <h4>Mike，php工程師</h4>
+            <p>Mike是教Miiko寫程式的人，是工作很久很久的php工程師，但他大部分的時間都在做全端的工作。喜歡玩英雄聯盟。</p>
           </div>
         </div>
       </div>

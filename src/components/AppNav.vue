@@ -78,14 +78,36 @@ export default {
   font-weight: 100;
   font-family: system-ui, sans-serif;
   text-align: center;
+  position: relative;
 }
 
 .nav-a-style:hover {
   color: #09cfa3;
+}
+
+.nav-a-style:after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 66%;
+  right: 50%;
+  left: 50%;
   border-bottom: 3px solid #07dcac;
+  transition: 0.3s;
+}
+
+.nav-a-style:hover:after {
+  width: 120%;
+  height: 66%;
+  right: 0%;
+  left: -10%;
 }
 
 @media screen and (max-width:576px) {
+  .nav {
+    justify-content: flex-end;
+  }
+
   .nav-btn {
     width: 5em;
     padding-left: 1em;
@@ -155,7 +177,6 @@ export default {
     transition:all .8s ease;
   }
 
-
   .list-container {
     width: 100%;
     position: absolute;
@@ -163,7 +184,7 @@ export default {
     display: flex;
     flex-direction:column;
     background: hsla(190, 0%, 99%, 1);
-    box-shadow: 0px 1px 5px 2px hsla(190, 0%, 15%, .2)
+    box-shadow: 0px 1px 5px 2px hsla(190, 0%, 15%, .2);
   }
 
   .list-container li {

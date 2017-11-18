@@ -1,10 +1,5 @@
 <template>
   <div class="app-about-project">
-    <div class="progress-bar">
-      <button class="progress-bar-item">START</button>
-      <button class="progress-bar-item">DO IT</button>
-      <button class="progress-bar-item">REVISE</button>
-    </div>
     <article class="about-project">
       <h3>ABOUT THE PROJECT</h3>
       <section>
@@ -127,36 +122,6 @@ ol>li{
   font-weight: 300;
 }
 
-.progress-bar {
-  display: none;  /*先暫時註解掉，小網nav決定再修正*/
-  justify-content: space-between;
-  position: fixed;
-  width: 13em;
-  right: 6em;
-  top: .3em;
-  z-index: 11;
-}
-
-.progress-bar-item {
-  width: 4.5em;
-  height: 4.5em;
-  background: #ffffff;
-  border: 1px solid #07dc75;
-  color: #09cfa3;
-  border-radius: 50%;
-  z-index: 11;
-  position: relative;
-}
-
-.progress-bar-item:nth-child(1):before, .progress-bar-item:nth-child(2):before {
-  content: '';
-  border-top: 2px solid #07dc75;
-  width: 25px;
-  top: 2.1em;
-  left: 4.4em;
-  position: absolute;
-  width: 30px;
-}
 
 .goal-container {
   display: flex;

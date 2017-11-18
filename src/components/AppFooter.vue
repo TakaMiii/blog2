@@ -6,7 +6,12 @@
         <input class="input-style" type="text"  v-model="visitorsMeg.name" placeholder="name">
         <input class="input-style" type="email"  v-model="visitorsMeg.email" placeholder="email address">
         <textarea class="input-msg-style" type="text"  v-model="visitorsMeg.message" placeholder="Your message"></textarea>
-        <div class="btn-container"><button class="send-letter" type="submit">SENT</button></div>
+        <div class="btn-container">
+          <button v-on:click="sending" v-bind:class="{ readybtn : readySent, sendingbtn : sendingNow }" class="send-letter" type="submit">{{ sentMeg }}
+            <div v-bind:class="{ sendingstyle : sendingNow, sendicon : sentSuccess }" class="js-sendingstyle">
+            </div>
+          </button>
+        </div>
       </div>
     </div>
     <div class="footer-bottom"><p>© 2017, Taka Miiko & Mike</p></div>
@@ -23,12 +28,30 @@ export default {
         name: '',
         email: '',
         message: ''
-      }
+      },
+      sentMeg: 'SENT',
+      readySent: true,
+      sendingNow: false,
+      sentSuccess: false
+    }
+  },
+  methods: {
+    sending () {
+      this.sentMeg = ''
+      this.readySent = false
+      this.sendingNow = true
+
+      setTimeout(() => {
+        this.sendingNow = false
+        this.readySent = true
+        this.sentSuccess = true
+        setTimeout(() => {
+          this.sentMeg = 'SENT'
+          this.sentSuccess = false
+        }, 800)
+      }, 3000)
     }
   }
-   // mounted: function mounted () {
-
-  // }
 }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -85,12 +108,104 @@ export default {
   margin-top: 2rem;
   padding: .8em 0;
   width: 50%;
-  background: #FFFFFF;
-  border: 1px solid #07dc9d;
+  height: 3.45rem;
   border-radius: 3px;
   color: #333;
   outline: none;
+  transition: all .5s ease;
 }
+
+.sendingbtn {
+  background: #07dc9d;
+  height: 3.45rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #07dc9d;
+}
+
+.readybtn {
+  background: #FFFFFF;
+  border: 1px solid #07dc9d;
+  display: flex;
+  justify-content: center;
+}
+
+.sendingstyle {
+  width: 30px;
+  height: 30px;
+  border: 2px solid hsl(190, 0%, 100%);
+  border-radius: 50%;
+  position: relative;
+  animation-name: whirling;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+.sendingstyle:before {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 10px;
+  background: #07dc9d;
+  transform: rotate(45deg);
+  right: 0px;
+}
+
+.sendingstyle:after {
+  content: '';
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  border: 6px solid;
+  border-color: transparent transparent transparent hsl(190, 0%, 100%);
+  left: 17px;
+  top: -6px;
+}
+
+/*讓寄送icon選轉的動畫*/
+@keyframes whirling {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*message寄送成功的動畫*/
+.sendicon {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #07dc9d;
+  border-radius: 50%;
+  position: relative;
+}
+
+.sendicon:before {
+  content: '';
+  position: absolute;
+  width: 0px;
+  height: 7px;
+  border: 2px solid;
+  top: 12px;
+  left: 9px;
+  border-color: transparent transparent transparent #07dc9d;
+  transform: rotate(-45deg);
+}
+
+.sendicon:after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 10px;
+  border: 2px solid;
+  border-color: transparent transparent #07dc9d transparent;
+  top: 4.5px;
+  left: 5.5px;
+  transform: rotate(-47deg);
+}
+
 
 @media screen and (max-width:992px){
   .contact-me {
@@ -104,7 +219,6 @@ export default {
 
   .send-letter {
     margin-top: 2.5rem;
-    padding: 1.5em 0;
     width: 100%;
   }
 }
