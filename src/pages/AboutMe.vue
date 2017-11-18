@@ -29,6 +29,9 @@ export default {
     toAboutProject () {
       this.$emit('chickAboutPeoject')
     }
+  },
+  mounted: function () {
+    console.log(123)
   }
 }
 </script>

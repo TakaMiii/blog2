@@ -6,16 +6,16 @@
   </button>
    <transition name="fade">
     <ul v-if="openNav" class="list-container">
-      <li><a href="#" class="nav-a-style js-nav-style" v-on:click="backHome">HOME</a></li>
-      <li><a href="#" class="nav-a-style js-nav-style" v-on:click="toAboutMe">ABOUT ME</a></li>
-      <li><a href="#" class="nav-a-style js-nav-style" v-on:click="toAboutPeoject">ABOUT THE PROJECT</a></li>
+      <li><router-link to="/" class="nav-a-style js-nav-style">HOME</router-link></li>
+      <li><router-link to="/about-me" class="nav-a-style js-nav-style">ABOUT ME</router-link></li>
+      <li><router-link to="/about-project" class="nav-a-style js-nav-style">ABOUT THE PROJECT</router-link></li>
     </ul>
   </transition>
   <!-- 小網Nav結束 -->
   <ul class="list-container only-big-screen">
-    <li><a href="#" class="nav-a-style js-nav-style" v-on:click="backHome">HOME</a></li>
-    <li><a href="#" class="nav-a-style js-nav-style" v-on:click="toAboutMe">ABOUT ME</a></li>
-    <li><a href="#" class="nav-a-style js-nav-style" v-on:click="toAboutPeoject">ABOUT THE PROJECT</a></li>
+    <li><router-link to="/" class="nav-a-style js-nav-style">HOME</router-link></li>
+    <li><router-link to="/about-me" class="nav-a-style js-nav-style">ABOUT ME</router-link></li>
+    <li><router-link to="/about-project" class="nav-a-style js-nav-style">ABOUT THE PROJECT</router-link></li>
   </ul>
 
   </div>
@@ -42,10 +42,6 @@ export default {
     },
     toAboutPeoject: function () {
       this.$emit('chickAboutPeoject')
-    },
-    focusNavStyle: function () {
-      let navItem = document.querySelectorAll('.js-nav-style')
-      console.log(navItem)
     }
   }
 }
