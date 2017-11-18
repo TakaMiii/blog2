@@ -1,15 +1,17 @@
 <template>
-  <div class="items">
-    <div class="item" v-for="item in items" v-on:click="checkArticle">
-      <div class="img-size">
-        <img class="item-img" v-bind:src="item.coverImage">
+  <div>
+    <router-link to="/article" class="items">
+      <div class="item" v-for="item in items">
+        <div class="img-size">
+          <img class="item-img" v-bind:src="item.coverImage">
+        </div>
+        <div class="item-text">
+          <h3 class="item-h3">
+            {{ item.itemTitle }}</h3>
+          <div class="item-date">{{ item.date }}</div>
+        </div>
       </div>
-      <div class="item-text">
-        <h3 class="item-h3">
-          {{ item.itemTitle }}</h3>
-        <div class="item-date">{{ item.date }}</div>
-      </div>
-    </div>
+    </router-link>
   </div>
 </template>
 
@@ -66,9 +68,6 @@ export default {
     }
   },
   methods: {
-    checkArticle () {
-      this.$emit('goToArticle')
-    }
   }
 }
 </script>

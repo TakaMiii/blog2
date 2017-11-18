@@ -6,7 +6,6 @@
 
 <script>
 
-
 export default {
   name: 'app',
   components: {
@@ -16,7 +15,6 @@ export default {
     }
   },
   methods: {
-
   }
 }
 </script>

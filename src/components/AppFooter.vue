@@ -48,7 +48,7 @@ export default {
         setTimeout(() => {
           this.sentMeg = 'SENT'
           this.sentSuccess = false
-        }, 800)
+        }, 1000)
       }, 3000)
     }
   }
