@@ -32,17 +32,6 @@ export default {
     }
   },
   methods: {
-    toAboutMe: function () {
-      this.$emit('CheckAboutMe')
-      this.focusNavStyle()
-    },
-    backHome: function () {
-      this.$emit('clickHome')
-      this.focusNavStyle()
-    },
-    toAboutPeoject: function () {
-      this.$emit('chickAboutPeoject')
-    }
   }
 }
 </script>

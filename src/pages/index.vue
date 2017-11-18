@@ -1,13 +1,11 @@
 <template>
   <div id="index">
-    <app-nav v-on:CheckAboutMe="turnOnAboutme" v-on:chickAboutPeoject="toAboutProject"></app-nav>
-    <main-visual v-bind:homepage="homepage"></main-visual>
-    <app-items v-on:goToArticle="checkArticle"></app-items>
+    <app-nav></app-nav>
+    <main-visual></main-visual>
+    <app-items></app-items>
     <app-footer></app-footer>
   </div>
 </template>
-
-
 
 <script>
 import MainVisual from '../components/AppMainVisual.vue'
@@ -25,15 +23,6 @@ export default {
     'AppFooter': AppFooter
   },
   methods: {
-    turnOnAboutme () {
-      this.$emit('CheckAboutMe')
-    },
-    checkArticle () {
-      this.$emit('goToArticle')
-    },
-    toAboutProject () {
-      this.$emit('chickAboutPeoject')
-    }
   }
 }
 </script>

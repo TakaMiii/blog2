@@ -1,6 +1,6 @@
 <template>
   <div id="about-project">
-    <app-nav v-on:clickHome="turnHomePage"></app-nav>
+    <app-nav></app-nav>
     <app-about-project></app-about-project>
     <app-footer></app-footer>
   </div>
@@ -23,9 +23,6 @@ export default {
     'AppFooter': AppFooter
   },
   methods: {
-    turnHomePage: function () {
-      this.$emit('clickHome')
-    }
   }
 }
 </script>

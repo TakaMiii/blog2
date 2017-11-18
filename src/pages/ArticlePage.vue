@@ -1,6 +1,6 @@
 <template>
   <div id="article-page">
-    <app-nav v-on:clickHome="turnHomePage" v-on:CheckAboutMe="turnOnAboutme" v-on:chickAboutPeoject="toAboutProject"></app-nav>
+    <app-nav></app-nav>
     <color-code></color-code>
     <app-article></app-article>
     <app-footer></app-footer>
@@ -22,15 +22,6 @@ export default {
     'AppFooter': AppFooter
   },
   methods: {
-    turnOnAboutme () {
-      this.$emit('CheckAboutMe')
-    },
-    turnHomePage: function () {
-      this.$emit('clickHome')
-    },
-    toAboutProject () {
-      this.$emit('chickAboutPeoject')
-    }
   }
 }
 </script>
