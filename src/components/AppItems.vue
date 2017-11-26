@@ -3,11 +3,11 @@
     <router-link to="/article" class="items">
       <div class="item" v-for="item in items">
         <div class="img-size">
-          <img class="item-img" v-bind:src="item.coverImage">
+          <img class="item-img" v-bind:src="item.img">
         </div>
         <div class="item-text">
           <h3 class="item-h3">
-            {{ item.itemTitle }}</h3>
+            {{ item.title }}</h3>
           <div class="item-date">{{ item.date }}</div>
         </div>
       </div>
@@ -17,14 +17,7 @@
 
 <script>
 // 引入圖片
-import picture1 from '../assets/item-tex1.jpg'
-import picture2 from '../assets/item-tex2.jpg'
-import picture3 from '../assets/item-tex3.jpg'
-import picture4 from '../assets/item-tex4.jpg'
-import picture5 from '../assets/item-tex5.jpg'
-import picture6 from '../assets/item-tex6.jpg'
-import picture7 from '../assets/item-tex7.jpg'
-import picture8 from '../assets/item-tex8.jpg'
+import axios from 'axios'
 
 export default {
   name: 'AppItems',
@@ -32,42 +25,21 @@ export default {
     return {
       msg: 'nav',
       items: [
-        { coverImage: picture1,
-          itemTitle: '色碼轉RGB',
-          date: '2017/11/07'
-        },
-        { coverImage: picture2,
-          itemTitle: '不過我比較喜歡另一本',
-          date: '2017/8/20'
-        },
-        { coverImage: picture3,
-          itemTitle: '比如索涅奇卡就很好看',
-          date: '2017/9/20'
-        },
-        { coverImage: picture4,
-          itemTitle: '火狐狸雖然好看，但文學含量不高',
-          date: '2017/10/20'
-        },
-        { coverImage: picture5,
-          itemTitle: '可是現在都沒有時間看小說了，很多書雖買了但都看不了',
-          date: '2017/11/1'
-        },
-        { coverImage: picture6,
-          itemTitle: '標題六',
-          date: '2017/11/5'
-        },
-        { coverImage: picture7,
-          itemTitle: '標題七',
-          date: '2017/11/8'
-        },
-        { coverImage: picture8,
-          itemTitle: '標題八',
-          date: '2017/12/3'
-        }
       ]
     }
   },
   methods: {
+  },
+  mounted: function () {
+    let self = this
+    axios.get('http://blog-api.dandelion-and-cat.com/api/v1/articles')
+      .then(function (response) {
+        console.log(response.data.data)
+        self.items = response.data.data
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
   }
 }
 </script>
@@ -88,6 +60,33 @@ export default {
   border-radius: 2%;
   box-shadow: 2px 3px 6px 2px hsla(70, 30%, 95%, .2);
   overflow: hidden;
+}
+
+.item-text {
+  padding: 1.5em 1.2em;
+  padding-bottom: 2em;
+}
+
+.item-h3 {
+  position: relative;
+  line-height: 1.8em;
+  height: 3.6em;
+  font-family: SimSun, PingFang SC;
+  color: hsla(35, 94%, 10%, 1);
+  font-weight: 300;
+  letter-spacing: .15rem;
+  text-align: justify;
+  margin: 0px 0px 10px 0px;
+  overflow: hidden;
+}
+
+.item-img {
+  width: 100%;
+}
+
+.item-date {
+  color: #595757;
+  font-weight: lighter;
 }
 
 /*嗰種item互動效果 ＋ 首頁文章顯圖太大會被裁切*/
@@ -111,6 +110,12 @@ export default {
   transition-property: background;
 }
 
+.img-size:after {
+  content: 'View';
+  color: hsla(167, 92%, 45%, 0);
+  border: 2px solid hsla(167, 92%, 41%, 0);
+}
+
 .item:hover .img-size:before {
   content: '';
   position: absolute;
@@ -118,58 +123,31 @@ export default {
   height: 100%;
   top: 0em;
   bottom: 0em;
-  background: hsla(230, 43%, 100%, 0.7);
+  background: hsla(230, 10%, 30%, 0.7);
 }
+
+.item:hover .img-size:after {
+  content: 'View';
+  color: hsl(167, 92%, 45%);
+  font-size: 1.2em;
+  border: 2px solid hsl(167, 92%, 41%);
+  padding: .5em .8em;
+  padding-right: .4em;
+  letter-spacing: 0.5em;
+  position: absolute;
+  top: 40%;
+  left: 32%;
+  transition-duration: 1.5s;
+  transition-property: color, border;
+}
+
 
 /*hover item，裡面的h3會變顏色*/
 .item:hover .item-h3 {
-  font-weight: 600;
-  margin-left: 20px;
-  color: #02b490;
+  font-weight: 400;
+  color: hsl(172, 100%, 38%);;
 }
 
-.item-text {
-  padding: 1.5em 1.2em;
-  padding-top: 0;
-}
-
-.item-h3 {
-  position: relative;
-  line-height: 1.8em;
-  font-family: SimSun, PingFang SC;
-  color: hsla(35, 94%, 10%, 1);
-  font-weight: 300;
-  letter-spacing: .15rem;
-  text-align: justify;
-}
-
-.item-h3:before {
-  content: '';
-  position: absolute;
-  width: 0px;
-  margin-right: .8em;
-  background: #0bc4a3;
-}
-
-.item:hover .item-h3:before {
-  content: '';
-  position: absolute;
-  width: 4px;
-  height: 100%;
-  left: -20px;
-  top: 2px;
-  margin-right: .8em;
-  background: #0bc4a3;
-}
-
-.item-img {
-  width: 100%;
-}
-
-.item-date {
-  color: #595757;
-  font-weight: lighter;
-}
 
 @media screen and (max-width:576px) {
   .items {
