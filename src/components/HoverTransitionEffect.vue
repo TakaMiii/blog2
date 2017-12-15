@@ -93,7 +93,6 @@ export default {
     }
   },
   mounted: function () {
-
   },
   watch: {
     'mousePosition.id': function (event) { // 2.如果hover的物件id變了
@@ -125,31 +124,23 @@ export default {
       this.yGap = newVal - oldVal
     },
     putAnimation: function (xgap, ygap) {
+      this.hoverAnimate.fromBottom = false
+      this.hoverAnimate.fromTop = false
+      this.hoverAnimate.fromRight = false
+      this.hoverAnimate.fromLeft = false
       let xAbsoluteVal = Math.abs(this.xGap)
       let yAbsoluteVal = Math.abs(this.yGap)
 
       if (xAbsoluteVal > yAbsoluteVal) {
         if (this.xGap > 0) {
-          this.hoverAnimate.fromBottom = false
-          this.hoverAnimate.fromTop = false
-          this.hoverAnimate.fromRight = false
           this.hoverAnimate.fromLeft = true
         } else if (this.xGap >= 0) {
-          this.hoverAnimate.fromBottom = false
-          this.hoverAnimate.fromTop = false
-          this.hoverAnimate.fromLeft = false
           this.hoverAnimate.fromRight = true
         }
       } else {
         if (this.yGap > 0) {
-          this.hoverAnimate.fromRight = false
-          this.hoverAnimate.fromLeft = false
-          this.hoverAnimate.fromBottom = false
           this.hoverAnimate.fromTop = true
         } else if (this.yGap < 0) {
-          this.hoverAnimate.fromRight = false
-          this.hoverAnimate.fromLeft = false
-          this.hoverAnimate.fromTop = false
           this.hoverAnimate.fromBottom = true
         }
       }
@@ -281,7 +272,7 @@ export default {
 
   .from-bottom {
     animation-duration: 0.3s;
-    animation-name: bottomlide;
+    animation-name: bottomslide;
   }
 
   @keyframes bottomslide {
