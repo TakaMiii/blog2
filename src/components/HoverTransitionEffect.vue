@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul class="galleries-container js-galleries-container">
-      <li v-for="gallery in galleries" v-on:mouseover="getGalleryId($event, gallery.id)" class="gallery-li">
+      <li v-for="gallery in galleries" v-on:mouseover="getGallery(gallery.coordinate)" class="gallery-li">
         <a href="#" class="gallery-a">
           <img :src="gallery.poto" class="gallery-img">
           <div v-bind:class="{'from-left': hoverAnimate.fromLeft, 'from-right': hoverAnimate.fromRight, 'from-top': hoverAnimate.fromTop, 'from-bottom': hoverAnimate.fromBottom}" class="hover-block"><h4>{{ gallery.title }}</h4></div>
@@ -27,51 +27,63 @@ export default {
       galleries: [
         { poto: picture1,
           title: '測試標題一',
-          id: 1
+          id: 1,
+          coordinate: [0, 0]
         },
         { poto: picture2,
           title: '測試標題二',
-          id: 2
+          id: 2,
+          coordinate: [1, 0]
         },
         { poto: picture3,
           title: '測試標題三',
-          id: 3
+          id: 3,
+          coordinate: [2, 0]
         },
         { poto: picture4,
           title: '測試標題四',
-          id: 4
+          id: 4,
+          coordinate: [3, 0]
         },
         { poto: picture5,
           title: '測試標題五',
-          id: 5
+          id: 5,
+          coordinate: [0, 1]
         },
         { poto: picture6,
           title: '測試標題六',
-          id: 6
+          id: 6,
+          coordinate: [1, 1]
         },
         { poto: picture7,
           title: '測試標題七',
-          id: 7
+          id: 7,
+          coordinate: [2, 1]
         },
         { poto: picture1,
           title: '測試標題八',
-          id: 8
+          id: 8,
+          coordinate: [3, 1]
         },
         { poto: picture2,
           title: '測試標題九',
-          id: 9
+          id: 9,
+          coordinate: [0, 2]
         },
         { poto: picture3,
           title: '測試標題十',
-          id: 10
+          id: 10,
+          coordinate: [1, 2]
         },
         { poto: picture4,
           title: '測試標題十一',
-          id: 11
+          id: 11,
+          coordinate: [2, 2]
         },
         { poto: picture5,
           title: '測試標題十二',
-          id: 12
+          id: 12,
+          coordinate: [3, 2]
         }
       ],
 
@@ -80,8 +92,7 @@ export default {
         x: '',
         y: '',
         id: '',
-        xGap: '',
-        yGap: ''
+        coordinate: ''
       },
 
       hoverAnimate: {
@@ -95,56 +106,37 @@ export default {
   mounted: function () {
   },
   watch: {
-    'mousePosition.id': function (event) { // 2.如果hover的物件id變了
-      console.log(this.mousePosition.id)
-      this.getMousePosition()  //  3.啟動getMousePosition，拿data裡的資料撈出x,y的位置值
-      this.putAnimation(this.xGap, this.yGap)
-    },
-    'mousePosition.x': function (newVal, oldVal) {
-      this.XGap(newVal, oldVal)
-    },
-    'mousePosition.y': function (newVal, oldVal) {
-      this.YGap(newVal, oldVal)
+    'mousePosition.coordinate': function (Val, oldVal) { // 2.如果hover的物件id變了，回傳新舊作標值
+      this.putAnimation(Val, oldVal)
     }
   },
   methods: {
-    getGalleryId: function (event, id) {
-      this.mousePosition.id = id
-      this.mousePosition.mosuseEvent = event  // 1.把滑鼠事件暫時存在data
+    getGallery: function (coordinate) {
+      this.mousePosition.coordinate = coordinate      // 1. 取得被選取物件的座標值
     },
-    getMousePosition: function () {
-      let event = this.mousePosition.mosuseEvent
-      this.mousePosition.x = event.clientX
-      this.mousePosition.y = event.clientY
-    },
-    XGap: function (newVal, oldVal) {
-      this.xGap = newVal - oldVal
-    },
-    YGap: function (newVal, oldVal) {
-      this.yGap = newVal - oldVal
-    },
-    putAnimation: function (xgap, ygap) {
+
+    putAnimation: function (Val, oldVal) {
       this.hoverAnimate.fromBottom = false
       this.hoverAnimate.fromTop = false
       this.hoverAnimate.fromRight = false
       this.hoverAnimate.fromLeft = false
-      let xAbsoluteVal = Math.abs(this.xGap)
-      let yAbsoluteVal = Math.abs(this.yGap)
 
-      if (xAbsoluteVal > yAbsoluteVal) {
-        if (this.xGap > 0) {
-          this.hoverAnimate.fromLeft = true
-        } else if (this.xGap >= 0) {
-          this.hoverAnimate.fromRight = true
-        }
+      let row = Val[0]
+      let column = Val[1]
+      let oldRow = oldVal[0]
+      let oldColumn = oldVal[1]
+
+      if (column > oldColumn) {
+        this.hoverAnimate.fromBottom = true
+      } else if (column < oldColumn) {
+        this.hoverAnimate.fromTop = true
       } else {
-        if (this.yGap > 0) {
-          this.hoverAnimate.fromTop = true
-        } else if (this.yGap < 0) {
-          this.hoverAnimate.fromBottom = true
+        if (row > oldRow) {
+          this.hoverAnimate.fromRight = true
+        } else {
+          this.hoverAnimate.fromLeft = true
         }
       }
-      console.log('go', this.hoverAnimate.fromLeft, this.hoverAnimate.fromRight)
     }
   }
 }
@@ -234,7 +226,7 @@ export default {
 
   @keyframes leftslide {
     from {
-      margin-left: -100%;
+      margin-left: 100%;
     }
 
     to {
@@ -249,7 +241,7 @@ export default {
 
   @keyframes rightslide {
     from {
-      margin-left: 100%;
+      margin-left: -100%;
     }
     to {
       margin-left: 0%;
@@ -263,7 +255,7 @@ export default {
 
   @keyframes topslide {
     from {
-      margin-top: -100%;
+      margin-top: 100%;
     }
     to {
       margin-top: 0%;
@@ -277,7 +269,7 @@ export default {
 
   @keyframes bottomslide {
     from {
-      margin-top: 100%;
+      margin-top: -100%;
     }
     to {
       margin-top: 0%;
